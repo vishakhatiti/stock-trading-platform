@@ -1,0 +1,39 @@
+.nav-link:hover {
+    color: #387ed1 !important;
+}
+
+.footer-btns {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+footer .social li {
+    display: inline-block;
+    margin-right: 13px;
+}
+
+.footer-graveyard-links li {
+    display: inline-block;
+    margin-right: 13px;
+}
+
+.footer-graveyard-links a{
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 3px;
+}
+
+footer .social li i{
+ color: black;
+ size: 30%;
+ padding-right: 45px;
+ margin-left: -35px;
+}
+
+footer .social li i:hover {
+    color: #387ed1 !important;
+}

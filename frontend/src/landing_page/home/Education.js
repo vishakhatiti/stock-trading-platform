@@ -19,7 +19,7 @@ function Education() {
             covering everything from the basics to advanced trading.
           </p>
 
-          <a href="" style={{ textDecoration: "none" }}>
+          <a href="/" style={{ textDecoration: "none" }}>
             Varsity <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
           </a>
 
@@ -28,7 +28,7 @@ function Education() {
             India for all your market related queries.
           </p>
 
-          <a href="" style={{ textDecoration: "none" }}>
+          <a href="/" style={{ textDecoration: "none" }}>
             TradingQ&A <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
           </a>
         </div>

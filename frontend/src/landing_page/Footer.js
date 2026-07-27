@@ -41,50 +41,50 @@ function Footer() {
 
                 <div className='col'>
                     <h5>Account</h5>
-                    <a href='' className='footer-btns'>Open demat account</a><br/>
-                    <a href='' className='footer-btns'>Minor demat account</a><br/>
-                    <a href='' className='footer-btns'>HUF demat account</a><br/>
-                    <a href='' className='footer-btns'>Commodity</a><br/>
-                    <a href='' className='footer-btns'>Dematerialisation</a><br/>
-                    <a href='' className='footer-btns'>Fund transfer</a><br/>
-                    <a href='' className='footer-btns'>MTF</a><br/>
-                    <a href='' className='footer-btns'>NRI demat account</a><br/>
+                    <a href="/" className='footer-btns'>Open demat account</a><br/>
+                    <a href="/" className='footer-btns'>Minor demat account</a><br/>
+                    <a href="/" className='footer-btns'>HUF demat account</a><br/>
+                    <a href="/" className='footer-btns'>Commodity</a><br/>
+                    <a href="/" className='footer-btns'>Dematerialisation</a><br/>
+                    <a href="/" className='footer-btns'>Fund transfer</a><br/>
+                    <a href="/" className='footer-btns'>MTF</a><br/>
+                    <a href="/" className='footer-btns'>NRI demat account</a><br/>
                 </div>
 
                 <div className='col'>
                     <h5>Support</h5>
-                    <a href='' className='footer-btns'>Contact us</a><br/>
-                    <a href='' className='footer-btns'>Support portal</a><br/>
-                    <a href='' className='footer-btns'>How to file a complaint?</a><br/>
-                    <a href='' className='footer-btns'>Status of your complaints</a><br/>
-                    <a href='' className='footer-btns'>Bulletin</a><br/>
-                    <a href='' className='footer-btns'>Circular</a><br/>
-                    <a href='' className='footer-btns'>Z-Connect blog</a><br/>
-                    <a href='' className='footer-btns'>Downloads</a><br/>
+                    <a href="/" className='footer-btns'>Contact us</a><br/>
+                    <a href="/" className='footer-btns'>Support portal</a><br/>
+                    <a href="/" className='footer-btns'>How to file a complaint?</a><br/>
+                    <a href="/" className='footer-btns'>Status of your complaints</a><br/>
+                    <a href="/" className='footer-btns'>Bulletin</a><br/>
+                    <a href="/" className='footer-btns'>Circular</a><br/>
+                    <a href="/" className='footer-btns'>Z-Connect blog</a><br/>
+                    <a href="/" className='footer-btns'>Downloads</a><br/>
                 </div>
 
                 <div className='col'>
                     <h5>Company</h5>
-                    <a href='' className='footer-btns'>About</a><br/>
-                    <a href='' className='footer-btns'>Philosophy</a><br/>
-                    <a href='' className='footer-btns'>Press & media</a><br/>
-                    <a href='' className='footer-btns'>Careers</a><br/>
-                    <a href='' className='footer-btns'>Zerodha Cares (CSR)</a><br/>
-                    <a href='' className='footer-btns'>Zerodha.tech</a><br/>
-                    <a href='' className='footer-btns'>Open source</a><br/>
-                    <a href='' className='footer-btns'>Referral program</a><br/>
+                    <a href="/" className='footer-btns'>About</a><br/>
+                    <a href="/" className='footer-btns'>Philosophy</a><br/>
+                    <a href="/" className='footer-btns'>Press & media</a><br/>
+                    <a href="/" className='footer-btns'>Careers</a><br/>
+                    <a href="/" className='footer-btns'>Zerodha Cares (CSR)</a><br/>
+                    <a href="/" className='footer-btns'>Zerodha.tech</a><br/>
+                    <a href="/" className='footer-btns'>Open source</a><br/>
+                    <a href="/" className='footer-btns'>Referral program</a><br/>
                 </div>
 
                 <div className='col'>
                     <h5>Quick links</h5>
-                    <a href='' className='footer-btns'>Upcoming IPOs</a><br/>
-                    <a href='' className='footer-btns'>Brokerage charges</a><br/>
-                    <a href='' className='footer-btns'>Market holidays</a><br/>
-                    <a href='' className='footer-btns'>Economic calendar</a><br/>
-                    <a href='' className='footer-btns'>Calculators</a><br/>
-                    <a href='' className='footer-btns'>Markets</a><br/>
-                    <a href='' className='footer-btns'>Sectors</a><br/>
-                    <a href='' className='footer-btns'>Gift Nifty</a><br/>
+                    <a href="/" className='footer-btns'>Upcoming IPOs</a><br/>
+                    <a href="/" className='footer-btns'>Brokerage charges</a><br/>
+                    <a href="/" className='footer-btns'>Market holidays</a><br/>
+                    <a href="/" className='footer-btns'>Economic calendar</a><br/>
+                    <a href="/" className='footer-btns'>Calculators</a><br/>
+                    <a href="/" className='footer-btns'>Markets</a><br/>
+                    <a href="/" className='footer-btns'>Sectors</a><br/>
+                    <a href="/" className='footer-btns'>Gift Nifty</a><br/>
                 </div>
                 </div>
             

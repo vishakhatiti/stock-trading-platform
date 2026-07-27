@@ -9,7 +9,7 @@ function Founder() {
 
       <div className="row p-5">
         <div className="col-6 p-5 text-center" style={{lineHeight:"2"}}>
-          <img src='media/images/nithinkamath.jpg' style={{borderRadius:"100%", width:"60%", marginBottom:"20px", marginTop:"-40px"}}/>
+          <img src='media/images/nithinkamath.jpg' alt='nithinkamathImg' style={{borderRadius:"100%", width:"60%", marginBottom:"20px", marginTop:"-40px"}}/>
           <h1 className='fs-5 text-muted'>Nithin Kamath</h1>
           <p className='text-muted'>Founder, CEO</p>
         </div>

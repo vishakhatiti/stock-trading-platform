@@ -15,17 +15,17 @@ function Pricing() {
                 {/* Column - Part 2 */}
                 <div className='col-7 d-flex' style={{position:"relative",top:"-30px"}}>
                     <div className='d-flex align-items-end' style={{width:"30%"}}>
-                        <img src='media/images/pricing-eq.svg' style={{width:"65%"}}></img>
+                        <img src='media/images/pricing-eq.svg' alt='pricing-eq Img' style={{width:"65%"}}></img>
                         <p className='mb-0' style={{marginLeft:"-30px", fontWeight:"200", fontSize:"12px"}}>Free account opening</p>
                     </div> 
 
                     <div className='d-flex align-items-end' style={{width:"40%"}}>
-                        <img src='media/images/pricing-eq.svg' style={{width:"50%"}}></img>
+                        <img src='media/images/pricing-eq.svg' alt='pricing-eq Img' style={{width:"50%"}}></img>
                         <p className='mb-0' style={{marginLeft:"-30px", fontWeight:"200", fontSize:"12px"}}>Free equity delivery and direct mutual funds</p>
                     </div>
 
                      <div className='d-flex align-items-end' style={{width:"30%"}}>
-                        <img src='media/images/other-trades.svg' style={{width:"65%"}}></img>
+                        <img src='media/images/other-trades.svg' alt='other-trades Img' style={{width:"65%"}}></img>
                         <p className='mb-0' style={{marginLeft:"-30px", fontWeight:"200", fontSize:"12px"}}>Intraday and F&O</p>
                     </div> 
                 </div>

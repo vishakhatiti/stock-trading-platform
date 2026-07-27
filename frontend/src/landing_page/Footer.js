@@ -7,7 +7,7 @@ function Footer() {
            <div className='container p-2 border-top'>
             <div className='row mt-5'>
                 <div className='col p-5'>
-                    <img src='media/images/logo.svg' style={{width:"70%", marginTop:"-80px"}}/>
+                    <img src='media/images/logo.svg' alt='logo' style={{width:"70%", marginTop:"-80px"}}/>
                     <p style={{ fontSize: "12px", color: "#333", marginTop:"-20px" }}>&copy;2010 - 2026, Zerodha Broking Ltd. <br/> All rights reserved.</p>
 
                     <ul className='social'>
@@ -33,9 +33,9 @@ function Footer() {
 
                     <div className='app-badges'>
                         <a target='_blank' href=''>
-                            <img src='media/images/google-play-badge-light.svg' style={{width:"55%", padding:"5px"}}/></a>
+                            <img src='media/images/google-play-badge-light.svg' alt='google-play-badge-light' style={{width:"55%", padding:"5px"}}/></a>
                             <a target='_blank' href=''>
-                            <img src='media/images/appstore-badge-light.svg' style={{width:"45%", padding:"3px"}}/></a>
+                            <img src='media/images/appstore-badge-light.svg' alt='appstore-badge-light' style={{width:"45%", padding:"3px"}}/></a>
                     </div>
                 </div>
 

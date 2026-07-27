@@ -14,7 +14,7 @@ function LeftSection({
   <div className="container mb-5">
     <div className="row p-3">
         <div className="col-7 p-5">
-            <img src={imageURL} style={{marginRight:"50px", width:"95%", ...imageStyle}}/>
+            <img src={imageURL} alt="Product illustration" style={{marginRight:"50px", width:"95%", ...imageStyle}}/>
         </div>
         <div className="col-5 p-5 mt-3" style={{lineHeight:"1.9"}}>
             <h1 className="mb-3 fs-3">{productName}</h1>

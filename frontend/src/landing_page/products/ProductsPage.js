@@ -52,7 +52,7 @@ function AboutPage() {
         googlePlay=""
         appStore=""
       />
-      <p className="text-center fs-5">Want to know more about our technology stack? Check out the >Zerodha.tech</a> blog.</p>
+      <p className="text-center fs-5">Want to know more about our technology stack? Check out the <a>Zerodha.tech</a> blog.</p>
       <Universe />
     </>
   );

@@ -11,30 +11,30 @@ function Footer() {
                     <p style={{ fontSize: "12px", color: "#333", marginTop:"-20px" }}>&copy;2010 - 2026, Zerodha Broking Ltd. <br/> All rights reserved.</p>
 
                     <ul className='social'>
-                        <li><a target="_blank" href=''>
+                        <li><a target="_blank" href="/">
                             <i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a target="_blank" href=''>
+                            <li><a target="_blank" href="/">
                             <i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a target="_blank" href=''>
+                            <li><a target="_blank" href="/">
                             <i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a target="_blank" href=''>
+                            <li><a target="_blank" href="/">
                             <i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                     </ul>
                     <hr></hr>
 
                     <ul className='social'>
-                        <li><a target="_blank" href=''>
+                        <li><a target="_blank" href="/">
                             <i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                            <li><a target="_blank" href=''>
+                            <li><a target="_blank" href="/">
                             <i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-                            <li><a target="_blank" href=''>
+                            <li><a target="_blank" href="/">
                             <i class="fa fa-telegram" aria-hidden="true"></i></a></li>
                     </ul>
 
                     <div className='app-badges'>
-                        <a target='_blank' href=''>
+                        <a target='_blank' href="/">
                             <img src='media/images/google-play-badge-light.svg' alt='google-play-badge-light' style={{width:"55%", padding:"5px"}}/></a>
-                            <a target='_blank' href=''>
+                            <a target='_blank' href="/">
                             <img src='media/images/appstore-badge-light.svg' alt='appstore-badge-light' style={{width:"45%", padding:"3px"}}/></a>
                     </div>
                 </div>
@@ -109,17 +109,17 @@ function Footer() {
               
               <div className='footer-graveyard-links text-center'>
                 <ul>
-                <li><a rel='nofollow' href=''>NSE</a></li>
-                <li><a rel='nofollow' href=''>BSE</a></li>
-                <li><a rel='nofollow' href=''>MCX</a></li> 
-                <li><a rel='nofollow' href=''>MSEI</a></li> 
-                <li><a rel='nofollow' href=''>Terms & conditions</a></li> 
-                <li><a rel='nofollow' href=''>Policies & procedures</a></li> 
-                <li><a rel='nofollow' href=''>Privacy policy</a></li> 
-                <li><a rel='nofollow' href=''>Disclosure</a></li> 
-                <li><a rel='nofollow' href=''>For investor's attention</a></li> 
-                <li><a rel='nofollow' href=''>Investor charter</a></li> 
-                <li><a rel='nofollow' href=''>Sitemap</a></li>
+                <li><a rel='nofollow' href="/">NSE</a></li>
+                <li><a rel='nofollow' href="/">BSE</a></li>
+                <li><a rel='nofollow' href="/">MCX</a></li> 
+                <li><a rel='nofollow' href="/">MSEI</a></li> 
+                <li><a rel='nofollow' href="/">Terms & conditions</a></li> 
+                <li><a rel='nofollow' href="/">Policies & procedures</a></li> 
+                <li><a rel='nofollow' href="/">Privacy policy</a></li> 
+                <li><a rel='nofollow' href="/">Disclosure</a></li> 
+                <li><a rel='nofollow' href="/">For investor's attention</a></li> 
+                <li><a rel='nofollow' href="/">Investor charter</a></li> 
+                <li><a rel='nofollow' href="/">Sitemap</a></li>
               </ul>
               </div>
 

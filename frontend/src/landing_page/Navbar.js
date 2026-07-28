@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Style.css";
 
 function Navbar() {
@@ -20,40 +20,40 @@ function Navbar() {
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav gap-lg-4">
             <li className="nav-item">
-              <Link className="nav-link text-secondary" to="/signup">
+              <NavLink className="nav-link text-secondary" to="/signup">
                 Signup
-              </Link>
+              </NavLink>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link text-secondary" to="/about">
+              <NavLink className="nav-link text-secondary" to="/about">
                 About
-              </Link>
+              </NavLink>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link text-secondary" to="/products">
+              <NavLink className="nav-link text-secondary" to="/products">
                 Products
-              </Link>
+              </NavLink>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link text-secondary" to="/pricing">
+              <NavLink className="nav-link text-secondary" to="/pricing">
                 Pricing
-              </Link>
+              </NavLink>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link text-secondary" to="/support">
+              <NavLink className="nav-link text-secondary" to="/support">
                 Support
-              </Link>
+              </NavLink>
             </li>
 
             {/* Menu icon  */}
             <li className="nav-item">
-              <Link to="/menu">
+              <NavLink to="/menu">
                  <i className="fa fa-bars fa-1x" style={{color: "gray", paddingTop: "12px", paddingLeft:"2px", cursor: "pointer"}}></i>
-            </Link>
+            </NavLink>
             </li>
             
           </ul>

@@ -2,9 +2,10 @@ const express = require("express");
 const { OrdersModel } = require("../model/OrdersModel");
 
 const router = express.Router();
+const verifyToken = require("../middleware/auth");
 
 // Create a new order
-router.post("/", async (req, res) => {
+router.post("/", verifyToken, async (req, res) => {
   try {
     const newOrder = new OrdersModel({
       name: req.body.name,

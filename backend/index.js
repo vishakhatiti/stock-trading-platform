@@ -8,6 +8,7 @@ const cors = require("cors");
 const holdingsRoutes = require("./routes/holdings");
 const positionsRoutes = require("./routes/positions");
 const ordersRoutes = require("./routes/orders");
+const authRoutes = require("./routes/auth");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(bodyParser.json());
 app.use("/allHoldings", holdingsRoutes);
 app.use("/allPositions", positionsRoutes);
 app.use("/newOrder", ordersRoutes);
+app.use("/api/auth", authRoutes);
 
 // Connect to MongoDB
 mongoose

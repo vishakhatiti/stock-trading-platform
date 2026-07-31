@@ -3,8 +3,10 @@ const { HoldingsModel } = require("../model/HoldingsModel");
 
 const router = express.Router();
 
+const verifyToken = require("../middleware/auth");
+
 // Get all holdings
-router.get("/", async (req, res) => {
+router.get("/", verifyToken, async (req, res) => {
   try {
     const holdings = await HoldingsModel.find({});
     res.json(holdings);

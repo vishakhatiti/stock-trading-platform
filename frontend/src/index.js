@@ -13,9 +13,14 @@ import Menu from './landing_page/menu/MenuPage';
 import NotFound from './landing_page/NotFound';
 import Navbar from './landing_page/Navbar';
 import Footer from './landing_page/Footer';
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <GoogleOAuthProvider
+  clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+>
   <BrowserRouter>
   <Navbar/>
   <Routes>
@@ -31,4 +36,5 @@ root.render(
   </Routes>
   <Footer/>
   </BrowserRouter>
+  </GoogleOAuthProvider>
 );

@@ -1,3 +1,6 @@
+const { OAuth2Client } = require("google-auth-library");
+const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
 const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -62,6 +65,14 @@ router.post("/login", async (req, res) => {
       });
     }
 
+    // Check if account uses Google Sign-In
+    if (user.provider === "google") {
+      return res.status(400).json({
+        message:
+          "This account uses Google Sign-In. Please continue with Google.",
+      });
+    }
+
     // Compare password
     const isMatch = await bcrypt.compare(password, user.password);
 
@@ -80,7 +91,7 @@ router.post("/login", async (req, res) => {
       process.env.JWT_SECRET,
       {
         expiresIn: "7d",
-      }
+      },
     );
 
     res.status(200).json({
@@ -116,6 +127,71 @@ router.get("/profile", verifyToken, async (req, res) => {
   } catch (error) {
     res.status(500).json({
       message: "Server Error",
+    });
+  }
+});
+
+// =======================
+// Google Login
+// =======================
+router.post("/google", async (req, res) => {
+  try {
+    // Get Google ID token from frontend
+    const { credential } = req.body;
+
+    // Verify Google token
+    const ticket = await googleClient.verifyIdToken({
+      idToken: credential,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    // Get user information from Google
+    const payload = ticket.getPayload();
+
+    const { sub, name, email, picture } = payload;
+
+    // Check if user already exists
+    let user = await UserModel.findOne({ email });
+
+    // Create new user if first Google login
+    if (!user) {
+      user = new UserModel({
+        name,
+        email,
+        googleId: sub,
+        avatar: picture,
+        provider: "google",
+      });
+
+      await user.save();
+    }
+
+    // Generate our own JWT
+    const token = jwt.sign(
+      {
+        id: user._id,
+        email: user.email,
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "7d",
+      },
+    );
+
+    // Send JWT and user details
+    res.status(200).json({
+      message: "Google login successful",
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        avatar: user.avatar,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Google authentication failed",
     });
   }
 });

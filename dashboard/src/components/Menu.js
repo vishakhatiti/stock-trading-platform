@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
+import "../index.css";
+
 const Menu = ({ user }) => {
   const [selectedMenu, setSelectedMenu] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
@@ -13,6 +15,15 @@ const Menu = ({ user }) => {
 
   const handleProfileClick = (index) => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
+  };
+
+  const handleLogout = () => {
+    // Remove user session
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    // Redirect to login page
+    window.location.href = `${process.env.REACT_APP_FRONTEND_URL}/login`;
   };
 
   const menuClass = "menu";
@@ -91,23 +102,26 @@ const Menu = ({ user }) => {
           </li>
         </ul>
         <hr />
-        <div className="profile" onClick={handleProfileClick}>
-  <div className="avatar">
-    {user?.avatar ? (
-      <img
-        src={user.avatar}
-        alt="Profile"
-        className="avatar-img"
-      />
-    ) : (
-      user?.name?.charAt(0).toUpperCase() || "U"
-    )}
-  </div>
 
-  <p className="username">
-    {user?.name || "User"}
-  </p>
-</div>
+        <div className="profile" onClick={handleProfileClick}>
+          <div className="avatar">
+            {user?.avatar ? (
+              <img src={user.avatar} alt="Profile" className="avatar-img" />
+            ) : (
+              user?.name?.charAt(0).toUpperCase() || "U"
+            )}
+          </div>
+
+          <p className="username">{user?.name || "User"}</p>
+        </div>
+
+        {isProfileDropdownOpen && (
+          <div className="profile-dropdown">
+            <button className="dropdown-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -15,4 +15,25 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+// Handle invalid or expired JWT
+api.interceptors.response.use(
+  (response) => response,
+
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      // Clear user session
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+
+      // Show message
+      alert("Session expired. Please login again.");
+
+      // Redirect to login page
+      window.location.href = `${process.env.REACT_APP_FRONTEND_URL}/login`;
+    }
+
+    return Promise.reject(error);
+  }
+);
+
 export default api;

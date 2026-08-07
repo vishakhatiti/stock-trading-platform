@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
 
-import { placeOrder } from "../api/orders";
 import { getQuote } from "../api/quote";
+import { placeOrder } from "../api/orders";
 
 import GeneralContext from "./GeneralContext";
 
 import "./BuyActionWindow.css";
 
-const BuyActionWindow = ({ uid }) => {
+const SellActionWindow = ({ uid }) => {
   const generalContext = useContext(GeneralContext);
 
   const [stockQuantity, setStockQuantity] = useState(1);
   const [currentPrice, setCurrentPrice] = useState(null);
+
   const [loading, setLoading] = useState(true);
   const [placingOrder, setPlacingOrder] = useState(false);
 
@@ -34,7 +35,7 @@ const BuyActionWindow = ({ uid }) => {
     }
   };
 
-  const handleBuyClick = async () => {
+  const handleSellClick = async () => {
     if (!currentPrice) return;
 
     try {
@@ -44,12 +45,12 @@ const BuyActionWindow = ({ uid }) => {
         symbol: uid,
         quantity: Number(stockQuantity),
         price: currentPrice,
-        orderType: "BUY",
+        orderType: "SELL",
       });
 
       alert("Order placed successfully!");
 
-      generalContext.closeBuyWindow();
+      generalContext.closeSellWindow();
     } catch (error) {
       alert(error.response?.data?.message || "Order failed");
     } finally {
@@ -58,13 +59,13 @@ const BuyActionWindow = ({ uid }) => {
   };
 
   const handleCancelClick = () => {
-    generalContext.closeBuyWindow();
+    generalContext.closeSellWindow();
   };
 
   return (
     <div className="container" id="buy-window">
       <div className="regular-order">
-        <h3 style={{ marginBottom: "20px" }}>Buy {uid}</h3>
+        <h3 style={{ marginBottom: "20px" }}>Sell {uid}</h3>
 
         {loading ? (
           <p>Loading market price...</p>
@@ -96,7 +97,7 @@ const BuyActionWindow = ({ uid }) => {
                 fontWeight: "600",
               }}
             >
-              Estimated Cost ₹{(stockQuantity * currentPrice).toFixed(2)}
+              Estimated Value ₹{(stockQuantity * currentPrice).toFixed(2)}
             </div>
           </>
         )}
@@ -108,10 +109,10 @@ const BuyActionWindow = ({ uid }) => {
         <div>
           <button
             className="btn btn-blue"
-            onClick={handleBuyClick}
+            onClick={handleSellClick}
             disabled={loading || placingOrder}
           >
-            {placingOrder ? "Buying..." : "Buy"}
+            {placingOrder ? "Selling..." : "Sell"}
           </button>
 
           <button
@@ -127,4 +128,4 @@ const BuyActionWindow = ({ uid }) => {
   );
 };
 
-export default BuyActionWindow;
+export default SellActionWindow;

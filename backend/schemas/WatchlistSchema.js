@@ -1,6 +1,6 @@
 const { Schema } = require("mongoose");
 
-const HoldingsSchema = new Schema(
+const WatchlistSchema = new Schema(
   {
     userId: {
       type: Schema.Types.ObjectId,
@@ -14,22 +14,10 @@ const HoldingsSchema = new Schema(
       uppercase: true,
       trim: true,
     },
-
-    quantity: {
-      type: Number,
-      required: true,
-      min: 0,
-    },
-
-    averagePrice: {
-      type: Number,
-      required: true,
-      min: 0,
-    },
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = { HoldingsSchema };
+module.exports = { WatchlistSchema };

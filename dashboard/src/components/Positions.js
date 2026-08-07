@@ -8,7 +8,7 @@ const Positions = () => {
   const [allPositions, setAllPositions] = useState([]);
 
   useEffect(()=> {
-    api.get("/allPositions").then((res)=>{
+    api.get("/api/positions").then((res)=>{
       console.log(res.data);
       setAllPositions(res.data);
     })

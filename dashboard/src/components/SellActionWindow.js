@@ -17,9 +17,6 @@ const SellActionWindow = ({ uid }) => {
   const [placingOrder, setPlacingOrder] = useState(false);
 
   useEffect(() => {
-    fetchQuote();
-  }, [uid]);
-
   const fetchQuote = async () => {
     try {
       setLoading(true);
@@ -34,6 +31,9 @@ const SellActionWindow = ({ uid }) => {
       setLoading(false);
     }
   };
+
+  fetchQuote();
+}, [uid]);
 
   const handleSellClick = async () => {
     if (!currentPrice) return;

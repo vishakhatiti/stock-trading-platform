@@ -16,23 +16,23 @@ const BuyActionWindow = ({ uid }) => {
   const [placingOrder, setPlacingOrder] = useState(false);
 
   useEffect(() => {
+    const fetchQuote = async () => {
+      try {
+        setLoading(true);
+
+        const quote = await getQuote(uid);
+
+        setCurrentPrice(quote.currentPrice);
+      } catch (error) {
+        console.error(error);
+        alert("Unable to fetch market price.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchQuote();
   }, [uid]);
-
-  const fetchQuote = async () => {
-    try {
-      setLoading(true);
-
-      const quote = await getQuote(uid);
-
-      setCurrentPrice(quote.currentPrice);
-    } catch (error) {
-      console.error(error);
-      alert("Unable to fetch market price.");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleBuyClick = async () => {
     if (!currentPrice) return;

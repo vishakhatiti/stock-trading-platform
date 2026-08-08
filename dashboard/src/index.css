@@ -883,3 +883,85 @@ hr {
 .dropdown-btn:hover {
   background: #f5f5f5;
 }
+
+
+/* =========================
+   Dashboard Summary UX
+========================= */
+
+.summary-loading {
+  padding: 20px 0;
+  color: rgb(153, 153, 153);
+  font-size: 0.9rem;
+}
+
+/* Keep P&L percentage beside the value */
+.data .first h3 small {
+  margin-left: 5px;
+  font-size: 0.85rem;
+}
+
+/* Negative P&L */
+.data .first h3.loss {
+  color: rgb(250, 118, 78);
+}
+
+/* Positive P&L */
+.data .first h3.profit {
+  color: rgb(72, 194, 55);
+}
+
+/* Make summary values easier to read */
+.data .second p {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.data .second p span {
+  margin-left: auto;
+  font-weight: 400;
+}
+
+/* =========================
+   Dashboard Home Layout Fix
+========================= */
+
+.section {
+  padding-bottom: 1%;
+  margin-bottom: 1%;
+}
+
+.section > span {
+  margin-bottom: 1%;
+}
+
+.section .data {
+  width: 65%;
+  margin-top: 10px;
+}
+
+.section .data .first h3 {
+  margin: 10px 0 5px;
+}
+
+.section .data .first p {
+  margin-top: 5px;
+}
+
+.section .data .second p {
+  margin-bottom: 8px;
+}
+
+.section .divider {
+  margin: 20px 0;
+}
+
+/* Keep the dashboard compact */
+.username {
+  margin-bottom: 10px;
+}
+
+.username h6 {
+  margin-bottom: 10px;
+}

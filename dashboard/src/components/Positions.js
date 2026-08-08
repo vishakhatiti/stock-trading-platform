@@ -1,57 +1,102 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import api from "../api/axios";
-
-// import React from "react";
-// import { positions } from "../data/data";
 
 const Positions = () => {
   const [allPositions, setAllPositions] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(()=> {
-    api.get("/api/positions").then((res)=>{
-      console.log(res.data);
-      setAllPositions(res.data);
-    })
+  const fetchPositions = async () => {
+    try {
+      const { data } = await api.get("/api/positions");
+
+      setAllPositions(data);
+    } catch (error) {
+      console.error("Failed to fetch positions:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchPositions();
+
+    // Refresh live prices every 15 seconds
+    const interval = setInterval(() => {
+      fetchPositions();
+    }, 15000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <>
-      <h3 className="title">Positions ({allPositions.length})</h3>
+      <div className="title">
+        Positions ({loading ? "..." : allPositions.length})
+      </div>
 
       <div className="order-table">
         <table>
-          <tr>
-            <th>Product</th>
-            <th>Instrument</th>
-            <th>Qty.</th>
-            <th>Avg.</th>
-            <th>LTP</th>
-            <th>P&L</th>
-            <th>Chg.</th>
-          </tr>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Instrument</th>
+              <th>Qty.</th>
+              <th>Avg.</th>
+              <th>LTP</th>
+              <th>P&amp;L</th>
+              <th>Chg.</th>
+            </tr>
+          </thead>
 
-          {allPositions.map((stock, index) => {
-            const curValue = stock.price * stock.qty;
-            const isProfit = curValue - stock.avg * stock.qty >= 0.0;
-            const profClass = isProfit ? "profit" : "loss";
-            const dayClass = stock.isLoss ? "loss" : "profit";
+          <tbody>
+            {allPositions.map((stock, index) => {
+              const pnlClass =
+                stock.pnl >= 0 ? "profit" : "loss";
 
-            return (
-              <tr key={index}>
-                <td>{stock.product}</td>
-                <td>{stock.name}</td>
-                <td>{stock.qty}</td>
-                <td>{stock.avg.toFixed(2)}</td>
-                <td>{stock.price.toFixed(2)}</td>
-                <td className={profClass}>
-                  {(curValue - stock.avg * stock.qty).toFixed(2)}
-                </td>
-                <td className={dayClass}>{stock.day}</td>
-              </tr>
-            );
-          })}
+              const dayClass =
+                stock.isLoss ? "loss" : "profit";
+
+              return (
+                <tr key={`${stock.name}-${index}`}>
+                  <td>{stock.product}</td>
+
+                  <td>{stock.name}</td>
+
+                  <td>{stock.qty}</td>
+
+                  <td>
+                    ₹{Number(stock.avg).toFixed(2)}
+                  </td>
+
+                  <td>
+                    ₹{Number(stock.price).toFixed(2)}
+                  </td>
+
+                  <td className={pnlClass}>
+                    ₹{Number(stock.pnl).toFixed(2)}
+                  </td>
+
+                  <td className={dayClass}>
+                    {Number(stock.day).toFixed(2)}%
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </div>
+
+      {!loading && allPositions.length === 0 && (
+        <p
+          style={{
+            textAlign: "center",
+            color: "#999",
+            marginTop: "30px",
+          }}
+        >
+          No open positions
+        </p>
+      )}
     </>
   );
 };

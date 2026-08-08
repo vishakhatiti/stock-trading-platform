@@ -28,12 +28,152 @@ const WATCHLIST = [
   "TXN",
   "SHOP",
 ];
+// const WATCHLIST = [
+//   // Technology
+//   "AAPL",
+//   "MSFT",
+//   "NVDA",
+//   "AVGO",
+//   "ORCL",
+//   "CSCO",
+//   "IBM",
+//   "QCOM",
+//   "AMD",
+//   "INTC",
+//   "AMAT",
+//   "MU",
+//   "ADI",
+//   "TXN",
+//   "LRCX",
+//   "KLAC",
+//   "MRVL",
+//   "NXPI",
+//   "MCHP",
+//   "ON",
+//   "ARM",
+//   "INTU",
+//   "ADBE",
+//   "CRM",
+//   "NOW",
+//   "PANW",
+//   "SNOW",
+//   "PLTR",
+//   "CRWD",
+//   "FTNT",
+
+//   // Internet / Consumer Technology
+//   "AMZN",
+//   "GOOGL",
+//   "GOOG",
+//   "META",
+//   "NFLX",
+//   "TSLA",
+//   "UBER",
+//   "ABNB",
+//   "BKNG",
+//   "DASH",
+//   "SHOP",
+//   "SPOT",
+//   "PYPL",
+//   "SQ",
+//   "COIN",
+
+//   // Financial
+//   "JPM",
+//   "BAC",
+//   "WFC",
+//   "C",
+//   "GS",
+//   "MS",
+//   "BLK",
+//   "SCHW",
+//   "AXP",
+//   "USB",
+//   "PNC",
+//   "TFC",
+//   "COF",
+//   "BK",
+//   "CB",
+//   "CME",
+
+//   // Healthcare / Pharma
+//   "LLY",
+//   "UNH",
+//   "JNJ",
+//   "MRK",
+//   "ABBV",
+//   "PFE",
+//   "AMGN",
+//   "GILD",
+//   "BMY",
+//   "CVS",
+//   "ISRG",
+//   "ABT",
+//   "TMO",
+//   "DHR",
+//   "MDT",
+
+//   // Consumer
+//   "WMT",
+//   "COST",
+//   "HD",
+//   "LOW",
+//   "TGT",
+//   "NKE",
+//   "MCD",
+//   "SBUX",
+//   "CMG",
+//   "KO",
+//   "PEP",
+//   "PG",
+//   "CL",
+//   "EL",
+//   "DIS",
+
+//   // Energy
+//   "XOM",
+//   "CVX",
+//   "COP",
+//   "SLB",
+//   "EOG",
+//   "OXY",
+//   "PSX",
+//   "VLO",
+//   "MPC",
+//   "HAL",
+
+//   // Industrial / Aerospace
+//   "CAT",
+//   "DE",
+//   "GE",
+//   "HON",
+//   "UPS",
+//   "RTX",
+//   "BA",
+//   "LMT",
+//   "NOC",
+//   "MMM",
+
+//   // Telecom / Media / Other
+//   "T",
+//   "VZ",
+//   "TMUS",
+//   "CMCSA",
+//   "TMO",
+//   "FDX",
+//   "GM",
+//   "F",
+//   "RIVN",
+//   "FSLR",
+// ];
 
 // =======================
-// Simple Cache (15 seconds)
+// Simple Cache (2 minutes)
 // =======================
+
 let cachedWatchlist = [];
 let lastUpdated = 0;
+const CACHE_DURATION = 120000; // 2 minutes
 
 // =======================
 // GET /api/market/watchlist
@@ -42,10 +182,7 @@ router.get("/watchlist", async (req, res) => {
   try {
     const now = Date.now();
 
-    if (
-      cachedWatchlist.length > 0 &&
-      now - lastUpdated < 15000
-    ) {
+    if (cachedWatchlist.length > 0 && now - lastUpdated < CACHE_DURATION) {
       return res.json(cachedWatchlist);
     }
 
@@ -60,14 +197,13 @@ router.get("/watchlist", async (req, res) => {
           percent: `${quote.percentChange.toFixed(2)}%`,
           isDown: quote.change < 0,
         };
-      })
+      }),
     );
 
     cachedWatchlist = stocks;
     lastUpdated = now;
 
     res.json(stocks);
-
   } catch (error) {
     console.error(error);
 
@@ -93,7 +229,6 @@ router.get("/quote/:symbol", async (req, res) => {
     const data = await getQuote(symbol);
 
     res.json(data);
-
   } catch (error) {
     console.error(error);
 
@@ -119,7 +254,6 @@ router.get("/search", async (req, res) => {
     const stocks = await searchStocks(q);
 
     res.json(stocks);
-
   } catch (error) {
     console.error(error);
 
